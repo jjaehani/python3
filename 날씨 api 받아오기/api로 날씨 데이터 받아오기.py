@@ -2,7 +2,7 @@ import requests
 import json
 
 city = input() #도시
-apiKey = "e739b833f21254f7d41b85cf9a0978d4"
+apiKey = "#api키"
 lang = 'kr' #언어
 units = 'metric' #화씨 온도를 섭씨 온도로 변경
 api = f"https://api.openweathermap.org/data/2.5/weather?q={city}&appid={apiKey}&lang={lang}&units={units}"
