@@ -1,0 +1,58 @@
+1. 링크(domain)이동
+2. 로그인
+3. 카테고리 선정
+4. 카테고리 클릭
+5. 밑 (페이징 부분)
+6. 구성확인
+7. 개별 element확인
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 라이브러리 선언
+
+import time
+from selenium import webdriver as wb #webdriver를 실행 및 브라우저 제어를 위한 라이브러리
+from selenium.webdriver.common.keys import Keys #키보드 값을 제어할 수 있는 라이브러리
+from selenium.webdriver.common.by import By #요소를 접근하기 위한 방식을 활용할 수 있는 라이브러리
+
+# 링크(domain)이동
+
+url = "https://ssadafile.com/content?category1=HIT_A" # URL 정의
+
+driver = wb.Chrome() #브라우저 실행
+driver.get(url)
+
+# 카테고리 선정
+while True:
+    try:
+        driver.find_element(By.CSS_SELECTOR, "menu02").click()
+        time.sleep(1)
+    except:
+        break
+
+# 카테고리 클릭
+
+# 밑 (페이징 부분)
+
+# 구성확인
+
+# 개별 element확인
+
+
+
+# 결과 저장
+result_X = driver.find_elements(By.XPATH, '//*[@id="contentsList"]/div[2]/div[3]/ul')
+for result in result_X:
+    print(result.text)
+    print(result.text, file=open('결과.txt', 'w', encoding='utf-8'))
